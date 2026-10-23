@@ -67,7 +67,21 @@ In traditional Indian agricultural markets (APMC Mandis), farmers face severe bo
 - **Real-Time Mandi Intelligence**: Live Modal, Min, and Max market rates for Wheat, Soyabean, Chana, Mustard, Paddy, and Maize sourced from official Agmarknet channels.
 - **Smart Queue & Dynamic Token Engine**: Farmers reserve verified harvest delivery slots and receive algorithmic tokens (e.g., `BPL-2026-0142`) with real-time wait estimation, preventing physical mandi congestion.
 - **9-Stage Consignment Lifecycle**:
-  $$\text{REQUESTED} \rightarrow \text{SLOT\_BOOKED} \rightarrow \text{ARRIVED} \rightarrow \text{QUALITY\_CHECK} \rightarrow \text{ACCEPTED} \rightarrow \text{PROCURED} \rightarrow \text{PAYMENT\_PROCESSING} \rightarrow \text{PAID}$$
+  End-to-end transparent state machine tracking every agricultural consignment from booking to direct bank settlement:
+
+```mermaid
+flowchart LR
+    A["1. REQUESTED"] --> B["2. SLOT BOOKED"]
+    B --> C["3. ARRIVED"]
+    C --> D["4. QUALITY CHECK"]
+    D --> E["5. ACCEPTED"]
+    E --> F["6. PROCURED"]
+    F --> G["7. INVOICED"]
+    G --> H["8. PROCESSING"]
+    H --> I["9. PAID"]
+```
+
+  > `1. REQUESTED` ➔ `2. SLOT_BOOKED` ➔ `3. ARRIVED` ➔ `4. QUALITY_CHECK` ➔ `5. ACCEPTED` ➔ `6. PROCURED` ➔ `7. INVOICED` ➔ `8. PAYMENT_PROCESSING` ➔ `9. PAID`
 - **Electronic Form J Weighment Slip**: Automated generation of digital weighment and procurement slips with moisture content, foreign matter deduction, and gross/tare metrics.
 - **Aaj Hi Bechein (Instant Liquidity)**: Direct comparison between standard open-mandi auction rates versus expedited same-day DBT settlement offers.
 
